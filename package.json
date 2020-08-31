@@ -1,37 +1,44 @@
 {
-  "name": "strapi",
-  "private": true,
-  "version": "0.1.0",
-  "description": "A Strapi application",
+  "name": "msr.codes",
+  "version": "1.0.0",
+  "description": "Personal blog website, using Strapi backend and Next.js frontend",
+  "main": "app.js",
   "scripts": {
-    "develop": "strapi develop",
-    "start": "strapi start",
-    "build": "strapi build",
-    "strapi": "strapi"
+    "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
+    "start-backend": "cd backend && npm run start",
+    "start-frontend": "cd frontend && npm run start",
+    "dev": "concurrently \"npm run dev-backend\" \"npm run dev-frontend\"",
+    "dev-backend": "cd backend && npm run dev",
+    "dev-frontend": "cd frontend && npm run dev",
+    "setup": "concurrently \"npm run setup-backend\" \"npm run setup-frontend\"",
+    "setup-backend": "",
+    "setup-frontend": "cd frontend && next build"
   },
-  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikaelsrozee/msr.codes.git"
+  },
+  "author": "Mikael Rozee",
+  "bugs": {
+    "url": "https://github.com/mikaelsrozee/msr.codes/issues"
+  },
+  "homepage": "https://github.com/mikaelsrozee/msr.codes#readme",
   "dependencies": {
+    "concurrently": "^5.3.0",
+    "next": "9.5.2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "knex": "<0.20.0",
+    "sqlite3": "latest",
     "strapi": "3.1.4",
     "strapi-admin": "3.1.4",
-    "strapi-utils": "3.1.4",
-    "strapi-plugin-content-type-builder": "3.1.4",
-    "strapi-plugin-content-manager": "3.1.4",
-    "strapi-plugin-users-permissions": "3.1.4",
-    "strapi-plugin-email": "3.1.4",
-    "strapi-plugin-upload": "3.1.4",
     "strapi-connector-bookshelf": "3.1.4",
-    "knex": "<0.20.0",
-    "sqlite3": "latest"
-  },
-  "author": {
-    "name": "A Strapi developer"
-  },
-  "strapi": {
-    "uuid": "e066bb9c-b0ba-43ca-aaaa-dfb78fff9730"
-  },
-  "engines": {
-    "node": ">=10.0.0",
-    "npm": ">=6.0.0"
-  },
-  "license": "MIT"
+    "strapi-plugin-content-manager": "3.1.4",
+    "strapi-plugin-content-type-builder": "3.1.4",
+    "strapi-plugin-email": "3.1.4",
+    "strapi-plugin-graphql": "3.1.4",
+    "strapi-plugin-upload": "3.1.4",
+    "strapi-plugin-users-permissions": "3.1.4",
+    "strapi-utils": "3.1.4"
+  }
 }
