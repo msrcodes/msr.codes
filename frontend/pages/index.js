@@ -1,65 +1,53 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React from "react"
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div className="container bg-primary">
       <Head>
-        <title>Create Next App</title>
+        <title>Under Construction</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+      <main className="main">
+        <h1 className="title">
+          Under Construction
         </h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+        <p className="description">
+          This site is currently under construction. You can still reach out to me via the links below:
         </p>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+        <div className="grid">
+          <a href="https://twitter.com/msrcodes" className="card">
+            <h3>Twitter &rarr;</h3>
+            <p>Find my occasional thoughts, ramblings and pictures of cute animals.</p>
           </a>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+          <a href="https://github.com/mikaelsrozee" className="card">
+            <h3>GitHub &rarr;</h3>
+            <p>See what I'm working on as well as any horribly old (and often horribly horrible) code.</p>
           </a>
 
           <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
+            href="https://www.curseforge.com/members/msrcodes/projects"
+            className="card"
           >
-            <h3>Deploy &rarr;</h3>
+            <h3>CurseForge &rarr;</h3>
+            <p>There was once a time where I developed and designed mods for Minecraft. Find my work here.</p>
+          </a>
+
+          <a
+            href="https://www.twitch.tv/msrcodes"
+            className="card"
+          >
+            <h3>Twitch &rarr;</h3>
             <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
+              Follow me on Twitch where I occasionally stream development or chat and play games.
             </p>
           </a>
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
     </div>
   )
 }
