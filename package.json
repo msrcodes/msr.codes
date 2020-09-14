@@ -11,8 +11,8 @@
     "dev-backend": "cd backend && npm run dev",
     "dev-frontend": "cd frontend && npm run dev",
     "setup": "concurrently \"npm run setup-backend\" \"npm run setup-frontend\"",
-    "setup-backend": "",
-    "setup-frontend": "cd frontend && next build"
+    "setup-backend": "cd backend && yarn",
+    "setup-frontend": "cd frontend && yarn"
   },
   "repository": {
     "type": "git",
