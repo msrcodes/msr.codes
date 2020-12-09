@@ -8,8 +8,8 @@ module.exports = {
 				layoutm: 'auto',
 			},
 			gridTemplateRows: {
-				layout: 'auto auto',
-				layoutm: 'auto auto auto',
+				layout: '1fr auto',
+				layoutm: 'auto 1fr auto',
 			},
 		},
 	},
