@@ -1,6 +1,7 @@
 backend:
         name: github
         repo: mikaelsrozee/msr.codes
+        branch: develop
 
 media_folder: static/assets
 public_folder: /assets
@@ -8,7 +9,7 @@ public_folder: /assets
 collections:
         - name: blog
           label: Blog
-          folder: blog
+          folder: _content/blog
           create: true
           default: []
           fields:
@@ -18,7 +19,8 @@ collections:
                   - {name: body, label: Body, widget: markdown}
         - name: nav
           label: "Main Navigation"
-          folder: navigation
+          folder: _content/navigation
+          extension: json
           create: true
           required: true
           widget: list
