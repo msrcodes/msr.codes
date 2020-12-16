@@ -15,3 +15,15 @@ collections:
                   - {name: date, label: Date, widget: datetime}
                   - {name: title, label: Title}
                   - {name: body, label: Body, widget: markdown}
+        - name: nav
+          label: "Main Navigation"
+          folder: navigation
+          create: true
+          required: true
+          widget: list
+          default: []
+          label_singular: Link
+          summary: '{{fields.text}} ({{fields.href}})'
+          fields:
+                  - {label: Text, name: text, default: "A link"}
+                  - {label: Link, name: href, default: "/404"}
