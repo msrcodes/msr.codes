@@ -1,12 +1,6 @@
 # msr.codes blog site
 
-Uses Strapi backend and Next.js frontend
+[![Netlify Status](https://api.netlify.com/api/v1/badges/83ce6b87-4613-4435-80c8-67c05bf817f4/deploy-status)](https://app.netlify.com/sites/vigilant-hoover-31b733/deploys)
 
 # Installation
-Run the following commands from the root directory:
-
-`npm i`
-
-`npm run setup`
-
-`npm run dev (or npm run start)`
+// TODO
