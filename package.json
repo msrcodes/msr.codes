@@ -24,6 +24,7 @@
     "gatsby-plugin-netlify-cms": "^4.6.0",
     "gatsby-plugin-postcss": "^3.3.0",
     "gatsby-source-filesystem": "^2.7.0",
+    "gatsby-transformer-json": "^2.8.0",
     "netlify-cms-app": "^2.14.4",
     "postcss": "^8.2.1",
     "react": "^17.0.1",
