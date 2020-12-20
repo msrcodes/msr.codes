@@ -3,6 +3,7 @@ module.exports = {
 		'gatsby-plugin-postcss',
 		'gatsby-plugin-netlify-cms',
 		'gatsby-transformer-json',
+		'gatsby-transformer-remark',
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
