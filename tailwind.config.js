@@ -5,11 +5,13 @@ module.exports = {
 		colors: {
 			primary: {
 				DEFAULT: '#00aec6',
+				dark: '#006977',
 			},
 			secondary: {
 				DEFAULT: '#FFFFFF',
 				dark: '#1F2945',
 			},
+			white: '#fff',
 		},
 		extend: {
 			gridTemplateColumns: {
