@@ -13,7 +13,7 @@ const Home = ({data}) => {
 							<h2>{title}</h2>
 							<h3>{new Date(date).toDateString()}</h3>
 							<p>{excerpt}</p>						
-							<Link to={path} className="self-end">
+							<Link to={`blog/${path}`} className="self-end">
 								<button className="bg-primary hover:bg-primary-dark rounded-md text-white shadow px-4 py-2 mt-2">Read now</button>
 							</Link>
 						</section>
