@@ -1,5 +1,5 @@
 ---
-path: /blog/agile
+path: agile
 date: 2020-12-20T12:35:22.531Z
 title: Big Agile
 ---
