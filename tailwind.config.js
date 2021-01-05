@@ -2,20 +2,20 @@ module.exports = {
 	purge: ['./src/**/*.jsx'],
 	darkMode: 'media',
 	theme: {
-		colors: {
-			primary: {
-				DEFAULT: '#00aec6',
-				dark: '#006977',
-			},
-			secondary: {
-				DEFAULT: '#FFFFFF',
-				dark: '#1F2945',
-			},
-			white: '#fff',
-		},
 		extend: {
+			colors: {
+				primary: {
+					DEFAULT: '#00aec6',
+					dark: '#006977',
+				},
+				secondary: {
+					DEFAULT: '#FFFFFF',
+					dark: '#1F2945',
+				},
+				white: '#fff',
+			},
 			gridTemplateColumns: {
-				layout: '1fr 2fr',
+				layout: '1fr 5fr',
 				layoutm: 'auto',
 			},
 			gridTemplateRows: {
