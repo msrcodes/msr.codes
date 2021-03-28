@@ -1,13 +1,13 @@
 {
   "name": "msr.codes",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Personal blog site",
   "scripts": {
-    "dev": "gatsby develop",
-    "build": "gatsby build",
-    "start": "yarn dev",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "dev": "next dev",
+    "develop": "yarn dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export"
   },
   "repository": {
     "type": "git",
@@ -20,16 +20,11 @@
   "homepage": "https://github.com/mikaelsrozee/msr.codes#readme",
   "dependencies": {
     "autoprefixer": "^10.1.0",
-    "gatsby": "^2.28.1",
-    "gatsby-plugin-netlify-cms": "^4.6.0",
-    "gatsby-plugin-postcss": "^3.3.0",
-    "gatsby-source-filesystem": "^2.7.0",
-    "gatsby-transformer-json": "^2.8.0",
-    "gatsby-transformer-remark": "^2.13.0",
     "netlify-cms-app": "^2.14.4",
+    "next": "^10.0.9",
     "postcss": "^8.2.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "tailwindcss": "^2.0.1"
   },
   "devDependencies": {
@@ -38,6 +33,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "4.0.0"
+    "eslint-plugin-react-hooks": "4.0.0",
+    "typescript": "^4.2.3"
   }
 }
