@@ -1,5 +1,5 @@
 const Page = () => (
-    <h1>Test!</h1>
+    <h1 className="text-red-500">Test!</h1>
 )
 
 export default Page
