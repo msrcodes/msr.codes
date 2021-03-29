@@ -7,7 +7,9 @@
     "develop": "yarn dev",
     "build": "next build",
     "start": "next start",
-    "export": "yarn build && next export"
+    "export": "yarn build && next export",
+    "contentful:ts-gen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts",
+    "c:tg": "yarn contentful:ts-gen"
   },
   "repository": {
     "type": "git",
@@ -20,7 +22,7 @@
   "homepage": "https://github.com/mikaelsrozee/msr.codes#readme",
   "dependencies": {
     "autoprefixer": "^10.1.0",
-    "netlify-cms-app": "^2.14.4",
+    "contentful": "^8.2.0",
     "next": "^10.0.9",
     "postcss": "^8.2.8",
     "react": "^17.0.2",
@@ -29,12 +31,18 @@
   },
   "devDependencies": {
     "@tailwindcss/jit": "^0.1.17",
+    "@types/node": "^14.14.37",
+    "@types/react": "^17.0.3",
+    "contentful-management": "^7.13.0",
+    "contentful-typescript-codegen": "^3.2.2",
+    "dotenv-flow": "^3.2.0",
     "eslint": "7.2.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "4.0.0",
+    "prettier": "^2.2.1",
     "typescript": "^4.2.3"
   }
 }

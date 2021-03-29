@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import {FC} from 'react'
 
 export type SEOProps = {
     title: string,
@@ -10,7 +11,7 @@ export type SEOProps = {
     image: string,
 }
 
-const SEO = ({title, description, siteName, siteUrl, twitterUser, favicon, image}: SEOProps) => (
+const SEO: FC<SEOProps> = ({title, description, siteName, siteUrl, twitterUser, favicon, image}: SEOProps) => (
     <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
