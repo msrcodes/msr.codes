@@ -1,5 +1,5 @@
 import {createClient} from 'contentful'
-import type {IPageFields} from '../../@types/generated/contentful'
+import type {IComponentRichTextFields, IPageFields} from '../../@types/generated/contentful'
 
 const {
     CONTENTFUL_SPACE_ID: space,
@@ -36,6 +36,32 @@ export const getSlugs = async () => {
 
     const slugs = items.map(({fields: {urlSlug}}) => urlSlug)
     return slugs
+}
+
+export type Fields = IComponentRichTextFields
+export type Type = "componentRichText" 
+
+export type Block = {
+    fields: Fields
+    type: Type
+}
+
+export const getPageBlocks = async (slug: string) => {
+    // Return undefined if the slug is not found
+    if (!(await getSlugs()).includes(slug)) return undefined
+
+    // Get all content items
+    const {items} = await client.getEntries<IPageFields>({content_type: 'page'})
+    const {fields: {pageBlocks}} = items.filter((x) => x.fields.urlSlug === slug)![0]
+
+    const blocks: Block[] | undefined = pageBlocks?.map((block) => {
+        return {
+            fields: block.fields,
+            type: block.sys.contentType.sys.id,
+        }
+    })
+
+    return blocks
 }
 
 export default client

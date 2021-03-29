@@ -3,12 +3,37 @@
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
+export interface IComponentRichTextFields {
+  /** Content */
+  content: Document;
+}
+
+export interface IComponentRichText extends Entry<IComponentRichTextFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "componentRichText";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IPageFields {
   /** URL Slug */
   urlSlug: string;
 
   /** SEO Config */
   seoConfig: ISeoConfig;
+
+  /** Page Blocks */
+  pageBlocks?: IComponentRichText[] | undefined;
 }
 
 export interface IPage extends Entry<IPageFields> {
@@ -65,7 +90,7 @@ export interface ISeoConfig extends Entry<ISeoConfigFields> {
   };
 }
 
-export type CONTENT_TYPE = "page" | "seoConfig";
+export type CONTENT_TYPE = "componentRichText" | "page" | "seoConfig";
 
 export type LOCALE_CODE = "en-US";
 

@@ -1,12 +1,26 @@
-import {GetStaticProps, GetStaticPaths} from 'next'
-import {getSlugs} from '../content/client'
+import {GetStaticProps, GetStaticPaths, InferGetStaticPropsType} from 'next'
+import {FC} from 'react'
+import {getSlugs, getPageBlocks} from '../content/client'
+import type {Block} from '../content/client'
 
-const Page = () => (
-    <h1 className="text-red-500">Test!</h1>
+import Mapper from '../components/Mapper'
+
+interface Props {
+    blocks: Block[],
+}
+
+const Page: FC<Props> = ({blocks}) => (
+    <Mapper blocks={blocks} />
 )
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    return {props: {}}
+    const params = context.params!
+    const slugArr = params.slug as string[] || ['']
+    const slug = `/${slugArr.join('/')}`
+
+    const blocks = (await getPageBlocks(slug))!
+
+    return {props: {blocks}}
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -20,7 +34,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         }
     })
 
-    return {paths, fallback: false}
+    return {paths, fallback: true}
 }
 
 export default Page
