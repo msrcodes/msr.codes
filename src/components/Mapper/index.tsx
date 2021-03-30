@@ -6,7 +6,7 @@ import type {Block} from '../../content/client'
 const mappings = {
 	componentRichText: ({fields, id}: Block) => (
 		<div
-			className="prose md:prose-lg lg:prose-xl mx-auto"
+			className="prose md:prose-lg lg:prose-lg xl:prose-xl 2xl:prose-2xl mx-auto"
 			dangerouslySetInnerHTML={{__html: documentToHtmlString(fields.content)}}
 			key={id}
 		/>
