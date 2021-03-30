@@ -63,6 +63,9 @@ export interface ISeoConfigFields {
   /** siteName */
   siteName: string;
 
+  /** siteUrl */
+  siteUrl?: string | undefined;
+
   /** twitterUser */
   twitterUser: string;
 

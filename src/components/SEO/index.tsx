@@ -1,17 +1,8 @@
 import Head from 'next/head'
 import {FC} from 'react'
+import { ISeoConfigFields } from '../../../@types/generated/contentful'
 
-export type SEOProps = {
-    title: string,
-    description: string,
-    siteName: string,
-    siteUrl: string,
-    twitterUser: string,
-    favicon: string,
-    image: string,
-}
-
-const SEO: FC<SEOProps> = ({title, description, siteName, siteUrl, twitterUser, favicon, image}: SEOProps) => (
+const SEO: FC<ISeoConfigFields> = ({title, description, siteName, siteUrl, twitterUser, favicon, image}: ISeoConfigFields) => (
     <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -25,10 +16,10 @@ const SEO: FC<SEOProps> = ({title, description, siteName, siteUrl, twitterUser, 
         <meta name="twitter:description" content={description} />
         <meta name="twitter:site" content={twitterUser} />
         <meta name="twitter:creator" content={twitterUser} />
-        <link rel="icon" type="image/png" href={favicon} />
-        <link rel="apple-touch-icon" href={favicon} />
-        <meta property="og:image" content={image} />  
-        <meta name="twitter:image" content={image} />  
+        <link rel="icon" type="image/png" href={favicon.fields.file.url} />
+        <link rel="apple-touch-icon" href={favicon.fields.file.url} />
+        <meta property="og:image" content={image.fields.file.url} />  
+        <meta name="twitter:image" content={image.fields.file.url} />  
     </Head>
 )
 

@@ -1,16 +1,16 @@
 import { ReactNode } from 'react'
+import { ISeoConfigFields } from '../../../@types/generated/contentful'
 
 import SEO from '../SEO'
-import type {SEOProps} from '../SEO'
 
 type LayoutProps = {
     children?: ReactNode,
-    seoProps: SEOProps,
+    seoFields: ISeoConfigFields,
 }
 
-const Layout = ({children, seoProps}: LayoutProps) => (
+const Layout = ({children, seoFields}: LayoutProps) => (
     <>
-        <SEO {...seoProps} />
+        <SEO {...seoFields} />
         <main>
             {children}
         </main>

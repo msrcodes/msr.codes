@@ -46,13 +46,13 @@ export type Block = {
     type: Type
 }
 
-export const getPageBlocks = async (slug: string) => {
+export const getPageData = async (slug: string) => {
     // Return undefined if the slug is not found
     if (!(await getSlugs()).includes(slug)) return undefined
 
     // Get all content items
     const {items} = await client.getEntries<IPageFields>({content_type: 'page'})
-    const {fields: {pageBlocks}} = items.filter((x) => x.fields.urlSlug === slug)![0]
+    const {fields: {pageBlocks, seoConfig}} = items.filter((x) => x.fields.urlSlug === slug)![0]
 
     const blocks: Block[] | undefined = pageBlocks?.map((block) => {
         return {
@@ -61,7 +61,7 @@ export const getPageBlocks = async (slug: string) => {
         }
     })
 
-    return blocks
+    return {blocks, seoConfig}
 }
 
 export default client

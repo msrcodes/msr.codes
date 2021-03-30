@@ -1,16 +1,21 @@
-import {GetStaticProps, GetStaticPaths, InferGetStaticPropsType} from 'next'
+import {GetStaticProps, GetStaticPaths} from 'next'
 import {FC} from 'react'
-import {getSlugs, getPageBlocks} from '../content/client'
+import {getSlugs, getPageData} from '../content/client'
 import type {Block} from '../content/client'
 
 import Mapper from '../components/Mapper'
+import Layout from '../components/Layout'
+import { ISeoConfig } from '../../@types/generated/contentful'
 
 interface Props {
     blocks: Block[],
+    seoConfig: ISeoConfig,
 }
 
-const Page: FC<Props> = ({blocks}) => (
-    <Mapper blocks={blocks} />
+const Page: FC<Props> = ({blocks, seoConfig}) => (
+    <Layout seoFields={seoConfig.fields}>
+        <Mapper blocks={blocks} />
+    </Layout>
 )
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -18,9 +23,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const slugArr = params.slug as string[] || ['']
     const slug = `/${slugArr.join('/')}`
 
-    const blocks = (await getPageBlocks(slug))!
+    const {blocks, seoConfig} = (await getPageData(slug))!
 
-    return {props: {blocks}}
+    return {props: {blocks, seoConfig}}
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
