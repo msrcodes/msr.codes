@@ -1,17 +1,17 @@
 module.exports = {
-	extends: 'airbnb',
-	plugins: [
-		'react',
-		'jsx-a11y',
-		'import',
-	],
+	extends: ['airbnb-typescript'],
+	parserOptions: {
+		project: './tsconfig.json',
+	},
 	env: {
 		browser: true,
 		node: true,
 	},
 	rules: {
 		semi: ['error', 'never'],
+		'@typescript-eslint/semi': ['error', 'never'],
 		indent: ['error', 'tab'],
+		'@typescript-eslint/indent': ['error', 'tab'],
 		camelcase: ['error', {properties: 'never'}],
 		'implicit-arrow-linebreak': 0,
 		'func-style': [
@@ -21,6 +21,7 @@ module.exports = {
 		'no-tabs': 0,
 		'linebreak-style': 0,
 		'object-curly-spacing': ['error', 'never'],
+		'@typescript-eslint/object-curly-spacing': ['error', 'never'],
 		'object-curly-newline': 0,
 		'react/jsx-one-expression-per-line': 0,
 		'react/no-access-state-in-setstate': 0,

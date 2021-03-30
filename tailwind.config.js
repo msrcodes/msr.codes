@@ -30,6 +30,7 @@ module.exports = {
 		extend: {},
 	},
 	plugins: [
+		// eslint-disable-next-line global-require
 		require('@tailwindcss/typography'),
 	],
 }

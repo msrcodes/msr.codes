@@ -5,41 +5,41 @@ import type {Block} from '../content/client'
 
 import Mapper from '../components/Mapper'
 import Layout from '../components/Layout'
-import { ISeoConfig } from '../../@types/generated/contentful'
+import {ISeoConfig} from '../../@types/generated/contentful'
 
 interface Props {
-    blocks: Block[],
-    seoConfig: ISeoConfig,
+	blocks: Block[],
+	seoConfig: ISeoConfig,
 }
 
-const Page: FC<Props> = ({blocks, seoConfig}) => (
-    <Layout seoFields={seoConfig.fields}>
-        <Mapper blocks={blocks} />
-    </Layout>
+const Page: FC<Props> = ({blocks, seoConfig}: Props) => (
+	<Layout seoFields={seoConfig.fields}>
+		<Mapper blocks={blocks} />
+	</Layout>
 )
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const params = context.params!
-    const slugArr = params.slug as string[] || ['']
-    const slug = `/${slugArr.join('/')}`
+	const params = context.params!
+	const slugArr = params.slug as string[] || ['']
+	const slug = `/${slugArr.join('/')}`
 
-    const {blocks, seoConfig} = (await getPageData(slug))!
+	const {blocks, seoConfig} = (await getPageData(slug))!
 
-    return {props: {blocks, seoConfig}}
+	return {props: {blocks, seoConfig}}
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const slugs = await getSlugs()
+	const slugs = await getSlugs()
 
-    const paths = slugs.map((urlSlug) => {
-        const slugArr = urlSlug.split('/').filter(Boolean)
+	const paths = slugs.map((urlSlug) => {
+		const slugArr = urlSlug.split('/').filter(Boolean)
 
-        return {
-            params: {slug: slugArr}
-        }
-    })
+		return {
+			params: {slug: slugArr},
+		}
+	})
 
-    return {paths, fallback: true}
+	return {paths, fallback: true}
 }
 
 export default Page

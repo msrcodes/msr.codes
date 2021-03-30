@@ -21,8 +21,11 @@
   },
   "include": [
     "next-env.d.ts",
+    "**/*.js",
+    "**/*.jsx",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".eslintrc.js",
   ],
   "exclude": [
     "node_modules"
