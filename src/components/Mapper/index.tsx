@@ -1,11 +1,15 @@
 import React, {FC} from 'react'
 import {documentToHtmlString} from '@contentful/rich-text-html-renderer'
 
-import type {Block, Fields} from '../../content/client'
+import type {Block} from '../../content/client'
 
 const mappings = {
-	componentRichText: (fields: Fields) => (
-		<div className="prose" dangerouslySetInnerHTML={{__html: documentToHtmlString(fields.content)}} />
+	componentRichText: ({fields, id}: Block) => (
+		<div
+			className="prose"
+			dangerouslySetInnerHTML={{__html: documentToHtmlString(fields.content)}}
+			key={id}
+		/>
 	),
 }
 
@@ -15,7 +19,7 @@ interface Props {
 
 const Mapper: FC<Props> = (props: Props) => (
 	<>
-		{props.blocks.map((block) => mappings[block.type](block.fields))}
+		{props.blocks.map((block) => mappings[block.type](block))}
 	</>
 )
 

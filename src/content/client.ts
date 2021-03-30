@@ -43,7 +43,8 @@ export type Type = 'componentRichText'
 
 export type Block = {
 	fields: Fields
-	type: Type
+	type: Type,
+	id: string,
 }
 
 export const getPageData = async (slug: string) => {
@@ -57,6 +58,7 @@ export const getPageData = async (slug: string) => {
 	const blocks: Block[] | undefined = pageBlocks?.map((block) => ({
 		fields: block.fields,
 		type: block.sys.contentType.sys.id,
+		id: block.sys.id,
 	}))
 
 	return {blocks, seoConfig}
