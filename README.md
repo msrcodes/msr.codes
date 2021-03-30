@@ -1,10 +1,44 @@
-# msr.codes blog site
+# 💻 msr.codes blog site
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/83ce6b87-4613-4435-80c8-67c05bf817f4/deploy-status)](https://app.netlify.com/sites/vigilant-hoover-31b733/deploys)
 
-# Installation
-// TODO
+This is my personal blog / portfolio site. You can find it at [https://msr.codes](https://msr.codes).
 
+# 📙 Tech Stack
+
+- TypeScript
+- Next.js (+ React)
+- TailwindCSS (with JIT compiler)
+- Contentful
+
+... and more, see the `package.json` for a full list of dependencies
+
+# ⚙️ Installation
+Install the necessary prerequisites:
+```
+yarn
+```
+```
+yarn prepare
+```
+
+and then run the appropriate script for your need:
+
+**Development**
+```
+yarn dev
+```
+
+**Production: Server Side Rendering**
+```
+yarn build
+yarn start
+```
+
+**Production Export Static Pages**
+```
+yarn export
+```
 # 📦 Contentful Migrations
 
 This website uses [Contentful](https://www.contentful.com) as it's headless CMS to provide a smooth editing experience. The content types needed for this project are provided as database migration scripts. These can be installed as follows:
