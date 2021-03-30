@@ -11,7 +11,7 @@ type LayoutProps = {
 const Layout = ({children, seoFields}: LayoutProps) => (
 	<>
 		<SEO {...seoFields} />
-		<main>
+		<main className="mt-8 mx-auto">
 			{children}
 		</main>
 	</>
