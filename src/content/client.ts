@@ -34,7 +34,9 @@ const client = createClient({
 export const getSlugs = async () => {
 	const {items} = await client.getEntries<IPageFields>({content_type: 'page'})
 
-	const slugs = items.map(({fields: {urlSlug}}) => urlSlug)
+	const validPages = items.filter((item) => !!item.fields.pageBlocks && !!item.fields.seoConfig)
+
+	const slugs = validPages.map(({fields: {urlSlug}}) => urlSlug)
 	return slugs
 }
 
@@ -53,9 +55,9 @@ export const getPageData = async (slug: string) => {
 
 	// Get all content items
 	const {items} = await client.getEntries<IPageFields>({content_type: 'page'})
-	const {fields: {pageBlocks, seoConfig}} = items.filter((x) => x.fields.urlSlug === slug)![0]
+	const {fields: {pageBlocks, seoConfig}} = items.filter((x) => x.fields.urlSlug === slug)[0]
 
-	const blocks: Block[] | undefined = pageBlocks?.map((block) => ({
+	const blocks: Block[] = (pageBlocks || []).map((block) => ({
 		fields: block.fields,
 		type: block.sys.contentType.sys.id,
 		id: block.sys.id,

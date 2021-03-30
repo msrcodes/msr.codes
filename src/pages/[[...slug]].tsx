@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Page: FC<Props> = ({blocks, seoConfig}: Props) => (
-	<Layout seoFields={seoConfig.fields}>
+	<Layout seoFields={seoConfig?.fields}>
 		<Mapper blocks={blocks} />
 	</Layout>
 )
@@ -39,7 +39,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 		}
 	})
 
-	return {paths, fallback: true}
+	return {paths, fallback: false}
 }
 
 export default Page

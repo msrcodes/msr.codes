@@ -14,12 +14,12 @@ const mappings = {
 }
 
 interface Props {
-	blocks: Block[],
+	blocks: Block[] | undefined,
 }
 
 const Mapper: FC<Props> = (props: Props) => (
 	<>
-		{props.blocks.map((block) => mappings[block.type](block))}
+		{(props?.blocks || []).map((block) => mappings[block.type](block))}
 	</>
 )
 

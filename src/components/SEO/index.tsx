@@ -24,10 +24,10 @@ const SEO: FC<ISeoConfigFields> = ({
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:site" content={twitterUser} />
 		<meta name="twitter:creator" content={twitterUser} />
-		<link rel="icon" type="image/png" href={favicon.fields.file.url} />
-		<link rel="apple-touch-icon" href={favicon.fields.file.url} />
-		<meta property="og:image" content={image.fields.file.url} />
-		<meta name="twitter:image" content={image.fields.file.url} />
+		<link rel="icon" type="image/png" href={favicon?.fields?.file?.url} />
+		<link rel="apple-touch-icon" href={favicon?.fields?.file?.url} />
+		<meta property="og:image" content={image?.fields?.file?.url} />
+		<meta name="twitter:image" content={image?.fields?.file?.url} />
 	</Head>
 )
 
