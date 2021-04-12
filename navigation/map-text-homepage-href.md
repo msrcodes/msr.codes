@@ -1,4 +1,0 @@
----
-text: Homepage
-href: /
----
