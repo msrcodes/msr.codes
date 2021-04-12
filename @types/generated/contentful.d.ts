@@ -25,6 +25,60 @@ export interface IComponentRichText extends Entry<IComponentRichTextFields> {
   };
 }
 
+export interface ILinkFields {
+  /** Title */
+  title: string;
+
+  /** URL */
+  url: string;
+}
+
+/** A generic link element, with a name and a href */
+
+export interface ILink extends Entry<ILinkFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "link";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface ILinksContainerFields {
+  /** Title */
+  title?: string | undefined;
+
+  /** Links */
+  links: ILink[];
+}
+
+/** A list of links, allowing a set of links to be reused in multiple places. e.g., Header links. */
+
+export interface ILinksContainer extends Entry<ILinksContainerFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "linksContainer";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IPageFields {
   /** URL Slug */
   urlSlug: string;
@@ -34,6 +88,9 @@ export interface IPageFields {
 
   /** Page Blocks */
   pageBlocks?: IComponentRichText[] | undefined;
+
+  /** Header Links */
+  headerLinks: ILinksContainer[];
 }
 
 export interface IPage extends Entry<IPageFields> {
@@ -93,7 +150,12 @@ export interface ISeoConfig extends Entry<ISeoConfigFields> {
   };
 }
 
-export type CONTENT_TYPE = "componentRichText" | "page" | "seoConfig";
+export type CONTENT_TYPE =
+  | "componentRichText"
+  | "link"
+  | "linksContainer"
+  | "page"
+  | "seoConfig";
 
 export type LOCALE_CODE = "en-US";
 

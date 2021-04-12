@@ -1,5 +1,5 @@
 import {createClient} from 'contentful'
-import type {IComponentRichTextFields, IPageFields} from '../../@types/generated/contentful'
+import type {IComponentRichTextFields, ILinkFields, IPageFields} from '../../@types/generated/contentful'
 
 const {
 	CONTENTFUL_SPACE_ID: space,
@@ -34,7 +34,8 @@ const client = createClient({
 export const getSlugs = async () => {
 	const {items} = await client.getEntries<IPageFields>({content_type: 'page'})
 
-	const validPages = items.filter((item) => !!item.fields.pageBlocks && !!item.fields.seoConfig)
+	// eslint-disable-next-line max-len
+	const validPages = items.filter(({fields}) => !!fields.pageBlocks && !!fields.seoConfig && !!fields.headerLinks)
 
 	const slugs = validPages.map(({fields: {urlSlug}}) => urlSlug)
 	return slugs
@@ -55,7 +56,20 @@ export const getPageData = async (slug: string) => {
 
 	// Get all content items
 	const {items} = await client.getEntries<IPageFields>({content_type: 'page'})
-	const {fields: {pageBlocks, seoConfig}} = items.filter((x) => x.fields.urlSlug === slug)[0]
+	const {
+		fields: {
+			pageBlocks,
+			seoConfig,
+			headerLinks: linksContainer,
+		},
+	} = items.filter((x) => x.fields.urlSlug === slug)[0]
+
+	const headerLinks = await Promise.all((linksContainer?.[0] || []).fields.links.map(
+		async ({sys: {id}}) => {
+			const link = await client.getEntry<ILinkFields>(id)
+			return link
+		},
+	))
 
 	const blocks: Block[] = (pageBlocks || []).map((block) => ({
 		fields: block.fields,
@@ -63,7 +77,7 @@ export const getPageData = async (slug: string) => {
 		id: block.sys.id,
 	}))
 
-	return {blocks, seoConfig}
+	return {blocks, seoConfig, headerLinks}
 }
 
 export default client
