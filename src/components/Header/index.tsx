@@ -42,7 +42,9 @@ const Header: FC<HeaderProps> = ({links = []}: HeaderProps) => {
 
 	return (
 		<header className="flex items-center justify-between flex-wrap bg-primary text-white p-6 transition-all">
-			<h1 className="text-xl font-extrabold w-full text-center sm:w-auto sm:text-left">msr.codes</h1>
+			<h1 className="text-xl font-extrabold w-full text-center sm:w-auto sm:text-left">
+				<HeaderLink title="msr.codes" href="/" />
+			</h1>
 			{/* Mobile nav */}
 			<nav className={`flex flex-col w-full text-center sm:w-auto sm:text-left sm:flex-row ${collapsed ? 'hidden' : 'sm:hidden'}`}>
 				<HeaderLinks links={links} />
