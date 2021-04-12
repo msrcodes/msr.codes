@@ -21,7 +21,7 @@ const Layout = ({children, seoFields, headerLinks}: LayoutProps) => {
 		<>
 			<SEO {...seoFields} />
 			<Header links={hLinks} />
-			<main className="mt-8 mx-auto">
+			<main className="mt-8 mx-auto px-6">
 				{children}
 			</main>
 		</>
