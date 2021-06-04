@@ -20,7 +20,7 @@ interface HeaderLinksProps {
 	links: HeaderLinkProps[],
 }
 
-const HeaderLinks: FC<HeaderLinksProps> = ({links}: HeaderLinksProps) => (
+const HeaderLinks: FC<HeaderLinksProps> = ({links}) => (
 	<>
 		{links.map(({title, href}, i) => (
 			<HeaderLink
@@ -37,7 +37,7 @@ interface HeaderProps {
 	links?: HeaderLinkProps[],
 }
 
-const Header: FC<HeaderProps> = ({links = []}: HeaderProps) => {
+const Header: FC<HeaderProps> = ({links = []}) => {
 	const [collapsed, setCollapsed] = useState(true)
 
 	return (
