@@ -5,7 +5,7 @@ import SEO, {Props as SEOProps} from '../SEO'
 
 interface Props {
 	children: ReactNode,
-	seoFields: SEOProps,
+	seoFields?: SEOProps,
 }
 
 const Layout: FC<Props> = ({children, seoFields}) => (
