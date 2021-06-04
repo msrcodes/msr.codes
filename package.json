@@ -2,6 +2,7 @@
   "name": "msr.codes",
   "version": "2.0.0",
   "description": "Personal blog site",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "develop": "yarn dev",
@@ -21,21 +22,18 @@
   },
   "homepage": "https://github.com/mikaelsrozee/msr.codes#readme",
   "dependencies": {
-    "@tailwindcss/typography": "^0.4.0",
-    "autoprefixer": "^10.1.0",
-    "next": "^10.0.9",
-    "postcss": "^8.2.8",
+    "@tailwindcss/typography": "^0.4.1",
+    "next": "^10.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
-    "tailwindcss": "^2.0.4"
+    "tailwindcss": "^2.1.4"
   },
   "devDependencies": {
-    "@tailwindcss/jit": "^0.1.17",
-    "@types/node": "^14.14.37",
-    "@types/react": "^17.0.3",
-    "@typescript-eslint/eslint-plugin": "^4.4.1",
-    "dotenv-flow": "^3.2.0",
+    "@types/node": "^15.12.1",
+    "@types/react": "^17.0.9",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "autoprefixer": "^10.2.6",
     "eslint": "7.2.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-plugin-import": "^2.22.0",
@@ -43,7 +41,7 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "husky": "^6.0.0",
-    "prettier": "^2.2.1",
-    "typescript": "^4.2.3"
+    "postcss": "^8.3.0",
+    "typescript": "^4.3.2"
   }
 }
