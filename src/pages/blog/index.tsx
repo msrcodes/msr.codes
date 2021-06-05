@@ -18,7 +18,7 @@ const BlogList: NextPage<Props> = ({out}) => (
 						<Link href={`/blog${k}`} className="bg-green-400 hover:bg-green-500 rounded p-4">Read more</Link>
 					</div>
 				</div>
-				<div>
+				<div className="my-auto">
 					<img src="https://placekitten.com/200/200" alt="" />
 				</div>
 			</div>
