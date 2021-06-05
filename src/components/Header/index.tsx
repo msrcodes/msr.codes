@@ -1,7 +1,7 @@
 import {FC, useState} from 'react'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import Sticky from 'react-stickynode'
-import useWindowSize from '../../hooks/windowSize'
+import useWindowSize from '../../helpers/hooks/windowSize'
 
 import HeaderLink, {Props as HeaderLinkProps} from './link'
 import HeaderLinks from './links'

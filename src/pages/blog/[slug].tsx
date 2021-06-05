@@ -1,11 +1,9 @@
 import {GetStaticPaths, GetStaticPathsResult, GetStaticProps, NextPage} from 'next'
-import path from 'path'
-import matter from 'gray-matter'
-import {readdirSync, readFileSync} from 'fs'
 import {serialize} from 'next-mdx-remote/serialize'
 import {MDXRemoteSerializeResult, MDXRemote} from 'next-mdx-remote'
 
 import Link from '../../components/Link'
+import {getAllBlogSlugs, map} from '../../helpers/blog'
 
 interface Props {
 	source: MDXRemoteSerializeResult<Record<string, unknown>>,
@@ -28,15 +26,7 @@ const BlogPost: NextPage<Props> = ({source, title, tags}) => (
 )
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const BLOG_PATH = path.join(process.cwd(), '/src/_content/blogs')
-
-	const files = readdirSync(BLOG_PATH)
-
-	const slugs: string[] = files.map((fileName) => {
-		const source = readFileSync(path.join(BLOG_PATH, fileName))
-		const {data} = matter(source)
-		return data.slug
-	})
+	const slugs = getAllBlogSlugs()
 
 	const paths = slugs.map((s) => ({
 		params: {slug: s.substring(1)},
@@ -50,39 +40,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	return result
 }
 
-type MapDataItem = [
-	string,
-	{
-		content: string,
-		data: {
-			[k: string]: any,
-		}
-	},
-]
-
 export const getStaticProps: GetStaticProps = async ({params}) => {
 	const slug = params?.slug as string ?? ''
-
-	const BLOG_PATH = path.join(process.cwd(), '/src/_content/blogs')
-
-	const files = readdirSync(BLOG_PATH)
-
-	const mapData = files.map((fileName) => {
-		const source = readFileSync(path.join(BLOG_PATH, fileName))
-		const {data, content} = matter(source)
-		return [data.slug, {content, data}] as MapDataItem
-	})
-
-	const map = new Map(mapData)
-
 	const f = map.get(`/${slug}`)
 
-	const title: string = f?.data.title ?? 'An error occured'
-	const tags: string[] = f?.data.tags?.split(', ') ?? []
+	if (!f) {
+		return {props: {}}
+	}
 
 	const source = await serialize(f?.content ?? '')
 
-	return {props: {source, title, tags}}
+	return {props: {source, ...f.data}}
 }
 
 export default BlogPost
