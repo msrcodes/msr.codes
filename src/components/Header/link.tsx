@@ -1,5 +1,5 @@
 import {FC} from 'react'
-import Link from 'next/link'
+import Link from '../Link'
 
 export interface Props {
 	title: string,
@@ -8,10 +8,8 @@ export interface Props {
 }
 
 const HeaderLink: FC<Props> = ({title, href, last = false}: Props) => (
-	<Link href={href} passHref>
-		{/* passHref is present onLink, so accessibility is preserved here */}
-		{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-		<a className={`hover:underline mt-4 sm:mt-0 ${last ? '' : 'sm:mr-4'}`}>{title}</a>
+	<Link href={href} className={`hover:underline mt-4 sm:mt-0 ${last ? '' : 'sm:mr-4'}`}>
+		{title}
 	</Link>
 )
 

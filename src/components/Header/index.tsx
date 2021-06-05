@@ -1,5 +1,7 @@
 import {FC, useState} from 'react'
 import {GiHamburgerMenu} from 'react-icons/gi'
+import Sticky from 'react-stickynode'
+import useWindowSize from '../../hooks/windowSize'
 
 import HeaderLink, {Props as HeaderLinkProps} from './link'
 import HeaderLinks from './links'
@@ -14,29 +16,31 @@ const Header: FC<HeaderProps> = ({links = [
 	{href: '/', title: 'Portfolio'},
 ]}) => {
 	const [collapsed, setCollapsed] = useState(true)
+	const {width} = useWindowSize()
 
 	return (
-		<header className="flex items-center justify-between flex-wrap bg-blue-300 text-black p-6 transition-all rounded-3xl m-4 shadow-lg">
-			<h1 className="text-xl font-extrabold w-full text-center sm:w-auto sm:text-left">
-				<HeaderLink title="msr.codes" href="/" />
-			</h1>
-			{/* Mobile nav */}
-			<nav className={`flex flex-col w-full text-center sm:w-auto sm:text-left sm:flex-row ${collapsed ? 'hidden' : 'sm:hidden'}`}>
-				<HeaderLinks links={links} />
-			</nav>
-			{/* Desktop nav */}
-			<nav className="hidden sm:flex flex-col w-full text-center sm:w-auto sm:text-left sm:flex-row">
-				<HeaderLinks links={links} />
-			</nav>
-			<button
-				className="border-black border p-2 absolute top-9 right-9 sm:hidden bg-white"
-				type="button"
-				onClick={() => setCollapsed(!collapsed)}
-				aria-label="Toggle navigation"
-			>
-				<GiHamburgerMenu />
-			</button>
-		</header>
+		<Sticky top={0}>
+			<header className="bg-blue-300 text-black p-6 mb-6 shadow-lg">
+				<div className="mx-auto w-full max-w-[64ch] flex items-center justify-between flex-wrap">
+					<h1 className="text-xl font-extrabold w-full text-center sm:w-auto sm:text-left">
+						<HeaderLink title="msr.codes" href="/" />
+					</h1>
+					{(!collapsed || width >= 640) && (
+						<nav className="flex flex-col w-full sm:w-auto text-left sm:flex-row">
+							<HeaderLinks links={links} />
+						</nav>
+					)}
+					<button
+						className="border-black border p-2 absolute top-5 right-9 sm:hidden bg-white"
+						type="button"
+						onClick={() => setCollapsed(!collapsed)}
+						aria-label="Toggle navigation"
+					>
+						<GiHamburgerMenu />
+					</button>
+				</div>
+			</header>
+		</Sticky>
 	)
 }
 
