@@ -2,13 +2,13 @@ import Head from 'next/head'
 import {FC} from 'react'
 
 export interface Props {
-	title: string,
-	description: string,
-	siteName: string,
-	siteUrl: string,
-	twitterUser: string,
-	favicon: string,
-	image: string,
+	title?: string,
+	description?: string,
+	siteName?: string,
+	siteUrl?: string,
+	twitterUser?: string,
+	favicon?: string,
+	image?: string,
 }
 
 const SEO: FC<Props> = ({
