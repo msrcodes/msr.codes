@@ -2,8 +2,8 @@ import {GetStaticPaths, GetStaticPathsResult, GetStaticProps, NextPage} from 'ne
 import {serialize} from 'next-mdx-remote/serialize'
 import {MDXRemoteSerializeResult, MDXRemote} from 'next-mdx-remote'
 
-import Link from '../../components/Link'
 import {getAllBlogSlugs, map} from '../../helpers/blog'
+import Tags from '../../components/Tags'
 
 interface Props {
 	source: MDXRemoteSerializeResult<Record<string, unknown>>,
@@ -15,11 +15,7 @@ const BlogPost: NextPage<Props> = ({source, title, tags}) => (
 	<>
 		<article className="prose mx-auto">
 			<h1>{title}</h1>
-			<div className="flex space-x-2 w-full">
-				{tags.map((tag) => (
-					<Link href={`/blog?t=${tag}`} className="bg-red-200 font-bold px-2 rounded-md shadow-sm">{tag}</Link>
-				))}
-			</div>
+			<Tags tags={tags} />
 			<MDXRemote {...source} />
 		</article>
 	</>
