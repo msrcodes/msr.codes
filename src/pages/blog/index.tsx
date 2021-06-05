@@ -1,6 +1,7 @@
 import {GetStaticProps, NextPage} from 'next'
 import {map, MapDataItem} from '../../helpers/blog'
 import Link from '../../components/Link'
+import Tags from '../../components/Tags'
 
 interface Props {
 	out: MapDataItem[]
@@ -12,7 +13,7 @@ const BlogList: NextPage<Props> = ({out}) => (
 			<div className={`flex w-full ${i % 2 === 0 && 'flex-row-reverse'}`}>
 				<div className="bg-blue-200 rounded-xl shadow p-4 mx-4 flex flex-col w-full">
 					<span className="font-bold text-lg">{v.data.title}</span>
-					<span>{v.data.tags}</span>
+					<Tags tags={v.data.tags} className="my-2" />
 					<span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae, ex?</span>
 					<div className="mt-6 mb-4">
 						<Link href={`/blog${k}`} className="bg-green-400 hover:bg-green-500 rounded p-4">Read more</Link>
