@@ -2,7 +2,7 @@ import Link from 'next/link'
 import {FC} from 'react'
 
 interface Props {
-	className: string
+	className?: string
 	href: string
 	[k: string]: any
 }
