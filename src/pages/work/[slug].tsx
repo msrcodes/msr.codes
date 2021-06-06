@@ -22,7 +22,7 @@ const BlogPost: NextPage<Props> = ({source, title, tags}) => (
 )
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const slugs = getAllSlugs('blogs')
+	const slugs = getAllSlugs('works')
 
 	const paths = slugs.map((s) => ({
 		params: {slug: s.substring(1)},
@@ -38,7 +38,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
 	const slug = params?.slug as string ?? ''
-	const f = getContentMap('blogs').get(`/${slug}`)
+	const f = getContentMap('works').get(`/${slug}`)
 
 	if (!f) {
 		return {props: {}}

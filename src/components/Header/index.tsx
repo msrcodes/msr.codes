@@ -19,8 +19,8 @@ const Header: FC<HeaderProps> = ({links = [
 	const {width} = useWindowSize()
 
 	return (
-		<Sticky top={0}>
-			<header className="bg-blue-300 text-black p-6 mb-6 shadow-lg">
+		<Sticky top={0} innerZ="100">
+			<header className="text-primary-default bg-white p-6 mb-6 border-b-4 border-primary-default">
 				<div className="mx-auto w-full max-w-[64ch] flex items-center justify-between flex-wrap">
 					<h1 className="text-xl font-extrabold w-full text-center sm:w-auto sm:text-left">
 						<HeaderLink title="msr.codes" href="/" />

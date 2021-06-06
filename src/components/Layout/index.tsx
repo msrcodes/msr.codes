@@ -12,7 +12,7 @@ const Layout: FC<Props> = ({children, seoFields}) => (
 	<>
 		<SEO {...seoFields} />
 		<Header />
-		<main className="mt-8 mx-auto px-6">
+		<main>
 			{children}
 		</main>
 	</>

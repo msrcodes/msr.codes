@@ -8,16 +8,17 @@ interface Props {
 	contentItems: ContentItem[]
 }
 
-const BlogList: NextPage<Props> = ({contentItems}) => {
+const WorkList: NextPage<Props> = ({contentItems}) => {
 	const {location, toDisplay, tags, setTags, router} = useContent(contentItems)
 
 	return (
 		<main className="mx-auto space-y-8 max-w-[64ch]">
 			<div className="prose">
-				<h1>Blog Posts</h1>
-				<p>Take a look at my ramblings!</p>
+				<h1>My Work</h1>
+				<p>These are things I have made</p>
 				<p>
-					Use the &quot;Filter By Tag&quot; section to select posts based on what you want to read.
+					Use the &quot;Filter By Tag&quot; section to select work based on what you want
+					to find out more about.
 				</p>
 			</div>
 			<TagSelector
@@ -25,8 +26,8 @@ const BlogList: NextPage<Props> = ({contentItems}) => {
 				setTags={setTags}
 				router={router}
 				location={location}
-				slug="blog"
-				itemName="blog posts"
+				slug="work"
+				itemName="works"
 			/>
 			<div className="space-y-8">
 				{toDisplay.map(([k, v], i) => (
@@ -46,8 +47,8 @@ const BlogList: NextPage<Props> = ({contentItems}) => {
 
 export const getStaticProps: GetStaticProps = async () => {
 	const contentItems = [] as ContentItem[]
-	getContentMap('blogs').forEach((v, k) => contentItems.push([k, v]))
+	getContentMap('works').forEach((v, k) => contentItems.push([k, v]))
 	return {props: {contentItems}}
 }
 
-export default BlogList
+export default WorkList
