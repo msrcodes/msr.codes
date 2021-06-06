@@ -1,31 +1,15 @@
 import {GetStaticProps, NextPage} from 'next'
-import {useRouter} from 'next/router'
-import {useEffect, useState} from 'react'
 import {getContentMap, ContentItem} from '../../helpers/content'
 import {removeTagFromQuery} from '../../components/Tags'
 import BlogCard from '../../components/BlogCard'
+import useContent from '../../helpers/hooks/content'
 
 interface Props {
-	out: ContentItem[]
+	contentItems: ContentItem[]
 }
 
-const BlogList: NextPage<Props> = ({out}) => {
-	const router = useRouter()
-
-	const [tags, setTags] = useState([] as string[])
-	const [location, setLocation] = useState({} as Location)
-
-	useEffect(() => {
-		const t = router.query.t as string | undefined
-		const ts: string[] = t?.split(',') ?? []
-		setTags(ts)
-
-		setLocation(window.location)
-	}, [router.query])
-
-	const blogsToInclude = out.filter(
-		([,{data: {tags: fts}}]) => tags.length === 0 || fts.some((tag) => tags.includes(tag)),
-	)
+const BlogList: NextPage<Props> = ({contentItems}) => {
+	const {location, toDisplay, tags, setTags, router} = useContent(contentItems)
 
 	return (
 		<main className="mx-auto space-y-8 max-w-[64ch]">
@@ -63,7 +47,7 @@ const BlogList: NextPage<Props> = ({out}) => {
 				</div>
 			</div>
 			<div className="space-y-8">
-				{blogsToInclude.map(([k, v], i) => (
+				{toDisplay.map(([k, v], i) => (
 					<BlogCard
 						key={`${k}-${v}-${i}`}
 						flipped={i % 2 === 0}
@@ -79,9 +63,9 @@ const BlogList: NextPage<Props> = ({out}) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-	const out = [] as ContentItem[]
-	getContentMap('blogs').forEach((v, k) => out.push([k, v]))
-	return {props: {out}}
+	const contentItems = [] as ContentItem[]
+	getContentMap('blogs').forEach((v, k) => contentItems.push([k, v]))
+	return {props: {contentItems}}
 }
 
 export default BlogList
