@@ -2,7 +2,7 @@ import {GetStaticPaths, GetStaticPathsResult, GetStaticProps, NextPage} from 'ne
 import {serialize} from 'next-mdx-remote/serialize'
 import {MDXRemoteSerializeResult, MDXRemote} from 'next-mdx-remote'
 
-import {getAllBlogSlugs, map} from '../../helpers/blog'
+import {getAllSlugs, getContentMap} from '../../helpers/content'
 import Tags from '../../components/Tags'
 
 interface Props {
@@ -22,7 +22,7 @@ const BlogPost: NextPage<Props> = ({source, title, tags}) => (
 )
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const slugs = getAllBlogSlugs()
+	const slugs = getAllSlugs('blogs')
 
 	const paths = slugs.map((s) => ({
 		params: {slug: s.substring(1)},
@@ -38,7 +38,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
 	const slug = params?.slug as string ?? ''
-	const f = map.get(`/${slug}`)
+	const f = getContentMap('blogs').get(`/${slug}`)
 
 	if (!f) {
 		return {props: {}}

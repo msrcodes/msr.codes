@@ -1,12 +1,12 @@
 import {GetStaticProps, NextPage} from 'next'
 import {useRouter} from 'next/router'
 import {useEffect, useState} from 'react'
-import {map, MapDataItem} from '../../helpers/blog'
+import {getContentMap, ContentItem} from '../../helpers/content'
 import {removeTagFromQuery} from '../../components/Tags'
 import BlogCard from '../../components/BlogCard'
 
 interface Props {
-	out: MapDataItem[]
+	out: ContentItem[]
 }
 
 const BlogList: NextPage<Props> = ({out}) => {
@@ -79,8 +79,8 @@ const BlogList: NextPage<Props> = ({out}) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-	const out = [] as MapDataItem[]
-	map.forEach((v, k) => out.push([k, v]))
+	const out = [] as ContentItem[]
+	getContentMap('blogs').forEach((v, k) => out.push([k, v]))
 	return {props: {out}}
 }
 
