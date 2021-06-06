@@ -8,7 +8,7 @@
     "develop": "yarn dev",
     "build": "next build",
     "start": "next start",
-    "export": "yarn build && next export",
+    "export": "next build && next export",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "prepare": "husky install"
   },
