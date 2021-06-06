@@ -1,67 +1,46 @@
 import {FC, useState} from 'react'
-import Link from 'next/link'
 import {GiHamburgerMenu} from 'react-icons/gi'
+import Sticky from 'react-stickynode'
+import useWindowSize from '../../helpers/hooks/windowSize'
 
-export interface HeaderLinkProps {
-	title: string,
-	href: string,
-	last?: boolean,
-}
-
-const HeaderLink: FC<HeaderLinkProps> = ({title, href, last = false}: HeaderLinkProps) => (
-	<Link href={href} passHref>
-		{/* passHref is present onLink, so accessibility is preserved here */}
-		{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-		<a className={`hover:underline mt-4 sm:mt-0 ${last ? '' : 'sm:mr-4'}`}>{title}</a>
-	</Link>
-)
-
-interface HeaderLinksProps {
-	links: HeaderLinkProps[],
-}
-
-const HeaderLinks: FC<HeaderLinksProps> = ({links}: HeaderLinksProps) => (
-	<>
-		{links.map(({title, href}, i) => (
-			<HeaderLink
-				title={title}
-				href={href}
-				last={i === links.length - 1}
-				key={`header-${title}-${href}-${i}`}
-			/>
-		))}
-	</>
-)
+import HeaderLink, {Props as HeaderLinkProps} from './link'
+import HeaderLinks from './links'
 
 interface HeaderProps {
 	links?: HeaderLinkProps[],
 }
 
-const Header: FC<HeaderProps> = ({links = []}: HeaderProps) => {
+const Header: FC<HeaderProps> = ({links = [
+	{href: 'https://twitter.com/msrcodes', title: 'Twitter'},
+	{href: 'https://github.com/mikaelsrozee', title: 'GitHub'},
+	{href: 'https://linkedin.com/in/mikaelsrozee', title: 'LinkedIn'},
+]}) => {
 	const [collapsed, setCollapsed] = useState(true)
+	const {width} = useWindowSize()
 
 	return (
-		<header className="flex items-center justify-between flex-wrap bg-primary text-white p-6 transition-all">
-			<h1 className="text-xl font-extrabold w-full text-center sm:w-auto sm:text-left">
-				<HeaderLink title="msr.codes" href="/" />
-			</h1>
-			{/* Mobile nav */}
-			<nav className={`flex flex-col w-full text-center sm:w-auto sm:text-left sm:flex-row ${collapsed ? 'hidden' : 'sm:hidden'}`}>
-				<HeaderLinks links={links} />
-			</nav>
-			{/* Desktop nav */}
-			<nav className="hidden sm:flex flex-col w-full text-center sm:w-auto sm:text-left sm:flex-row">
-				<HeaderLinks links={links} />
-			</nav>
-			<button
-				className="border-white border p-2 absolute top-5 right-5 sm:hidden"
-				type="button"
-				onClick={() => setCollapsed(!collapsed)}
-				aria-label="Toggle navigation"
-			>
-				<GiHamburgerMenu />
-			</button>
-		</header>
+		<Sticky top={0} innerZ="100">
+			<header className="text-primary-default bg-white p-6 mb-6 border-b-4 border-primary-default">
+				<div className="mx-auto w-full max-w-[64ch] flex items-center justify-between flex-wrap">
+					<h1 className="text-xl font-extrabold w-full text-center sm:w-auto sm:text-left">
+						<HeaderLink title="msr.codes" href="/" />
+					</h1>
+					{(!collapsed || width >= 640) && (
+						<nav className="flex flex-col w-full sm:w-auto text-left sm:flex-row">
+							<HeaderLinks links={links} />
+						</nav>
+					)}
+					<button
+						className="border-black border p-2 absolute top-5 right-9 sm:hidden bg-white"
+						type="button"
+						onClick={() => setCollapsed(!collapsed)}
+						aria-label="Toggle navigation"
+					>
+						<GiHamburgerMenu />
+					</button>
+				</div>
+			</header>
+		</Sticky>
 	)
 }
 

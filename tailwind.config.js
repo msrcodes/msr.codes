@@ -1,4 +1,5 @@
 module.exports = {
+	mode: 'jit',
 	purge: [
 		'./src/**/*.{js,jsx,ts,tsx}',
 	],
@@ -7,27 +8,19 @@ module.exports = {
 		extend: {
 			colors: {
 				primary: {
-					DEFAULT: '#00aec6',
-					dark: '#006977',
+					default: '#1C77C3',
 				},
 				secondary: {
-					DEFAULT: '#FFFFFF',
-					dark: '#1F2945',
+					DEFAULT: '#EE6C4D',
 				},
-				white: '#fff',
-			},
-			gridTemplateColumns: {
-				layout: '1fr 5fr',
-				layoutm: 'auto',
-			},
-			gridTemplateRows: {
-				layout: '1fr auto',
-				layoutm: 'auto 1fr auto',
+				tertiary: {
+					DEFAULT: '#63B0CD',
+				},
+				dark: {
+					DEFAULT: '#39393A',
+				},
 			},
 		},
-	},
-	variants: {
-		extend: {},
 	},
 	plugins: [
 		// eslint-disable-next-line global-require

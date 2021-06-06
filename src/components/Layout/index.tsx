@@ -1,31 +1,28 @@
-import {Entry} from 'contentful'
-import {ReactNode} from 'react'
-import {ISeoConfigFields, ILinkFields} from '../../../@types/generated/contentful'
+import {FC, ReactNode} from 'react'
 
-import Header, {HeaderLinkProps} from '../Header'
+import Header from '../Header'
 import SEO from '../SEO'
 
-type LayoutProps = {
+interface Props {
 	children: ReactNode,
-	seoFields: ISeoConfigFields,
-	headerLinks: Entry<ILinkFields>[],
 }
 
-const Layout = ({children, seoFields, headerLinks}: LayoutProps) => {
-	const hLinks: HeaderLinkProps[] = headerLinks.map(({fields: {title, url}}) => ({
-		title,
-		href: url,
-	}))
-
-	return (
-		<>
-			<SEO {...seoFields} />
-			<Header links={hLinks} />
-			<main className="mt-8 mx-auto px-6">
-				{children}
-			</main>
-		</>
-	)
-}
+const Layout: FC<Props> = ({children}) => (
+	<>
+		<SEO
+			description="From solution architecture to delivery planning to hands-on-keyboard div slinging, I choose the right hats for any given task."
+			siteUrl="https://msr.codes"
+			title="Mikael Rozee | Software Engineer & Technical Analyst"
+			siteName="msr.codes"
+			twitterUser="@mikaelsrozee"
+			image="https://images.ctfassets.net/8kxsu8yy3l3b/20nctnhnjDlwOHW1ok5dvl/6c90495a6ace22821a9333454f54ebde/logo.png"
+			favicon="https://images.ctfassets.net/8kxsu8yy3l3b/20nctnhnjDlwOHW1ok5dvl/6c90495a6ace22821a9333454f54ebde/logo.png"
+		/>
+		<Header />
+		<main>
+			{children}
+		</main>
+	</>
+)
 
 export default Layout

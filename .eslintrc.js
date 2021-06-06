@@ -33,5 +33,6 @@ module.exports = {
 		'react/jsx-indent-props': 0,
 		'react/no-danger': 0,
 		'react/require-default-props': [0],
+		'react/prop-types': 'off',
 	},
 }
