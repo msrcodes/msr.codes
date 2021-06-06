@@ -2,8 +2,8 @@ import {GetStaticProps, NextPage} from 'next'
 import {useRouter} from 'next/router'
 import {useEffect, useState} from 'react'
 import {map, MapDataItem} from '../../helpers/blog'
-import Link from '../../components/Link'
-import Tags, {removeTagFromQuery} from '../../components/Tags'
+import {removeTagFromQuery} from '../../components/Tags'
+import BlogCard from '../../components/BlogCard'
 
 interface Props {
 	out: MapDataItem[]
@@ -64,22 +64,14 @@ const BlogList: NextPage<Props> = ({out}) => {
 			</div>
 			<div className="space-y-8">
 				{blogsToInclude.map(([k, v], i) => (
-					<div
-						className={`flex w-full ${i % 2 === 0 && 'flex-row-reverse'}`}
+					<BlogCard
 						key={`${k}-${v}-${i}`}
-					>
-						<div className="bg-blue-200 rounded-xl shadow p-4 mx-4 flex flex-col w-full">
-							<span className="font-bold text-lg">{v.data.title}</span>
-							<Tags tags={v.data.tags} className="my-2" location={location} />
-							<span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae, ex?</span>
-							<div className="mt-6 mb-4">
-								<Link href={`/blog${k}`} className="bg-green-400 hover:bg-green-500 rounded p-4">Read more</Link>
-							</div>
-						</div>
-						<div className="my-auto">
-							<img src="https://placekitten.com/200/200" alt="" />
-						</div>
-					</div>
+						flipped={i % 2 === 0}
+						location={location}
+						tags={v.data.tags}
+						postTitle={v.data.title}
+						postURL={k}
+					/>
 				))}
 			</div>
 		</main>
