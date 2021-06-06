@@ -3,7 +3,7 @@ import {useRouter} from 'next/router'
 import {useEffect, useState} from 'react'
 import {map, MapDataItem} from '../../helpers/blog'
 import Link from '../../components/Link'
-import Tags, { removeTagFromQuery } from '../../components/Tags'
+import Tags, {removeTagFromQuery} from '../../components/Tags'
 
 interface Props {
 	out: MapDataItem[]
@@ -59,7 +59,7 @@ const BlogList: NextPage<Props> = ({out}) => {
 						) : (
 							<span>No tags selected. Showing all blog posts.</span>
 						)
-}
+					}
 				</div>
 			</div>
 			<div className="space-y-8">
