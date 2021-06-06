@@ -1,7 +1,7 @@
 import {FC, useState} from 'react'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import Sticky from 'react-stickynode'
-import useWindowSize from '../../hooks/windowSize'
+import useWindowSize from '../../helpers/hooks/windowSize'
 
 import HeaderLink, {Props as HeaderLinkProps} from './link'
 import HeaderLinks from './links'
@@ -11,9 +11,9 @@ interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({links = [
-	{href: '/', title: 'Blog'},
-	{href: '/', title: 'What I use'},
-	{href: '/', title: 'Portfolio'},
+	{href: '/blog', title: 'Blog'},
+	{href: '/uses', title: 'What I use'},
+	{href: '/work', title: 'My Work'},
 ]}) => {
 	const [collapsed, setCollapsed] = useState(true)
 	const {width} = useWindowSize()

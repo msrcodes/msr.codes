@@ -2,9 +2,9 @@ import Link from 'next/link'
 import {FC} from 'react'
 
 interface Props {
-	className: string
+	className?: string
 	href: string
-	[k: string | number]: any
+	[k: string]: any
 }
 
 const CustomLink: FC<Props> = ({className, children, href, ...props}) => (
