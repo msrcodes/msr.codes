@@ -1,8 +1,8 @@
 import {GetStaticProps, NextPage} from 'next'
 import {getContentMap, ContentItem} from '../../helpers/content'
-import {removeTagFromQuery} from '../../components/Tags'
 import BlogCard from '../../components/BlogCard'
 import useContent from '../../helpers/hooks/content'
+import TagSelector from '../../components/TagSelector'
 
 interface Props {
 	contentItems: ContentItem[]
@@ -20,32 +20,14 @@ const BlogList: NextPage<Props> = ({contentItems}) => {
 					Use the &quot;Filter By Tag&quot; section to select posts based on what you want to read.
 				</p>
 			</div>
-			<div className="p-4 bg-blue-100">
-				<h2 className="font-extrabold text-lg">Filter By Tag</h2>
-				<p>You are currently viewing blog posts with the following tags...</p>
-				<div className="flex space-x-2 w-full mt-4">
-					{
-						tags.length > 0 ? (
-							tags.map((t1) => (
-								<button
-									type="button"
-									className="bg-red-200 hover:bg-red-400 font-bold px-2 rounded-md shadow-sm"
-									onClick={() => {
-										setTags(tags.filter((x) => x !== t1))
-										const newQuery = removeTagFromQuery(location.search, t1)
-										const newURL = newQuery === 't=' ? '/blog' : `/blog?${newQuery}`
-										router.push(newURL)
-									}}
-								>
-									{t1}
-								</button>
-							))
-						) : (
-							<span>No tags selected. Showing all blog posts.</span>
-						)
-					}
-				</div>
-			</div>
+			<TagSelector
+				tags={tags}
+				setTags={setTags}
+				router={router}
+				location={location}
+				slug="blog"
+				itemName="blog posts"
+			/>
 			<div className="space-y-8">
 				{toDisplay.map(([k, v], i) => (
 					<BlogCard
