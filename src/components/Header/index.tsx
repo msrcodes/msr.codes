@@ -11,9 +11,9 @@ interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({links = [
-	{href: '/blog', title: 'Blog'},
-	{href: '/uses', title: 'What I use'},
-	{href: '/work', title: 'My Work'},
+	{href: 'https://twitter.com/msrcodes', title: 'Twitter'},
+	{href: 'https://github.com/mikaelsrozee', title: 'GitHub'},
+	{href: 'https://linkedin.com/in/mikaelsrozee', title: 'LinkedIn'},
 ]}) => {
 	const [collapsed, setCollapsed] = useState(true)
 	const {width} = useWindowSize()

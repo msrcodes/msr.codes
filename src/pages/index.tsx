@@ -4,7 +4,6 @@ import {IoMdAnalytics} from 'react-icons/io'
 import {GiSpiderWeb} from 'react-icons/gi'
 
 import Card from '../components/Card'
-import ImageCard from '../components/Card/image'
 import Link from '../components/Link'
 import Hero from '../components/Hero'
 
@@ -18,7 +17,9 @@ const Page: NextPage = () => (
 					<h1>Full-Stack Software Engineer & Technical Analyst</h1>
 					<p className="text-lg">I wear many hats. From solution architecture to delivery planning to hands-on-keyboard div slinging, I choose the right hats for any given task.</p>
 				</div>
-				<img className="w-32 h-32 md:w-64 md:h-64 mt-8 rounded-full" src="https://placekitten.com/400/400" alt="Hero" />
+				<div className="w-32 h-32 md:w-64 md:h-64 mt-8 rounded-full bg-primary-default flex">
+					<img className="w-16 h-16 md:w-28 md:h-28 m-auto" src="https://images.ctfassets.net/8kxsu8yy3l3b/20nctnhnjDlwOHW1ok5dvl/6c90495a6ace22821a9333454f54ebde/logo.png" alt="Hero" />
+				</div>
 			</div>
 		</section>
 		{/* About me */}
@@ -59,7 +60,6 @@ const Page: NextPage = () => (
 							<li><strong>APIs:</strong> RESTful APIs, GraphQL</li>
 							<li><strong>Style:</strong> TailwindCSS, SCSS</li>
 							<li><strong>Host:</strong> Microsoft Azure, Netlify</li>
-							<li className="prose"><Link href="/uses">...and more!</Link></li>
 						</ul>
 					</div>
 				</Card>
@@ -79,7 +79,6 @@ const Page: NextPage = () => (
 						<ul>
 							<li><strong>Java</strong> (+ Gradle, GSON)</li>
 							<li><strong>Python</strong> (+ pip, Selenium, TensorFlow)</li>
-							<li className="prose"><Link href="/uses">...and more!</Link></li>
 						</ul>
 					</div>
 					<div className="mb-8">
@@ -129,105 +128,9 @@ const Page: NextPage = () => (
 				</Card>
 			</div>
 		</section>
-		{/* My Recent Projects */}
-		<section className="px-8 max-w-5xl mx-auto">
-			<div className="prose !text-center mx-auto py-16">
-				<h2>My Recent Work</h2>
-				<p>
-					Here are some of the projects I have been working on recently. Want to see more?
-					&nbsp;<a href="mailto:mikaelsrozee@gmail.com">Drop me an email</a> or <a href="https://github.com/mikaelsrozee" target="_blank" rel="noreferrer">peek my GitHub.</a>
-				</p>
-			</div>
-			<section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-				<ImageCard
-					src="https://images.unsplash.com/photo-1593642531955-b62e17bdaa9c?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-					alt="Wow"
-				>
-					<section className="p-4 prose">
-						<h2>Epic Project</h2>
-						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni, rem.</p>
-						<Link href="/work/adventurers-amulets" className="bg-primary-default hover:bg-blue-900 !text-white !no-underline py-2 px-4 rounded-3xl">
-							View Now
-							<span className="font-extrabold ml-2">&gt;</span>
-						</Link>
-					</section>
-				</ImageCard>
-				<ImageCard
-					src="https://images.unsplash.com/photo-1593642531955-b62e17bdaa9c?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-					alt="Wow"
-				>
-					<section className="p-4 prose">
-						<h2>Epic Project</h2>
-						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni, rem.</p>
-						<Link href="/work/adventurers-amulets" className="bg-primary-default hover:bg-blue-900 !text-white !no-underline py-2 px-4 rounded-3xl">
-							View Now
-							<span className="font-extrabold ml-2">&gt;</span>
-						</Link>
-					</section>
-				</ImageCard>
-				<ImageCard
-					src="https://images.unsplash.com/photo-1593642531955-b62e17bdaa9c?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-					alt="Wow"
-				>
-					<section className="p-4 prose">
-						<h2>Epic Project</h2>
-						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni, rem.</p>
-						<Link href="/work/adventurers-amulets" className="bg-primary-default hover:bg-blue-900 !text-white !no-underline py-2 px-4 rounded-3xl">
-							View Now
-							<span className="font-extrabold ml-2">&gt;</span>
-						</Link>
-					</section>
-				</ImageCard>
-				<ImageCard
-					src="https://images.unsplash.com/photo-1593642531955-b62e17bdaa9c?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-					alt="Wow"
-				>
-					<section className="p-4 prose">
-						<h2>Epic Project</h2>
-						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni, rem.</p>
-						<Link href="/work/adventurers-amulets" className="bg-primary-default hover:bg-blue-900 !text-white !no-underline py-2 px-4 rounded-3xl">
-							View Now
-							<span className="font-extrabold ml-2">&gt;</span>
-						</Link>
-					</section>
-				</ImageCard>
-				<ImageCard
-					src="https://images.unsplash.com/photo-1593642531955-b62e17bdaa9c?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-					alt="Wow"
-				>
-					<section className="p-4 prose">
-						<h2>Epic Project</h2>
-						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni, rem.</p>
-						<Link href="/work/adventurers-amulets" className="bg-primary-default hover:bg-blue-900 !text-white !no-underline py-2 px-4 rounded-3xl">
-							View Now
-							<span className="font-extrabold ml-2">&gt;</span>
-						</Link>
-					</section>
-				</ImageCard>
-				<ImageCard
-					src="https://images.unsplash.com/photo-1593642531955-b62e17bdaa9c?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-					alt="Wow"
-				>
-					<section className="p-4 prose">
-						<h2>Epic Project</h2>
-						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni, rem.</p>
-						<Link href="/work/adventurers-amulets" className="bg-primary-default hover:bg-blue-900 !text-white !no-underline py-2 px-4 rounded-3xl">
-							View Now
-							<span className="font-extrabold ml-2">&gt;</span>
-						</Link>
-					</section>
-				</ImageCard>
-			</section>
-		</section>
-		<section className="px-8 my-8 mx-auto flex">
-			<Link href="/work" className="bg-white hover:bg-gray-200 !text-primary-default border border-primary-default !no-underline py-2 px-4 rounded-3xl mx-auto">
-				View all my work
-				<span className="font-extrabold ml-2">&gt;</span>
-			</Link>
-		</section>
 		<Hero>
-			<h2 className="!text-white">Want to work together?</h2>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, fugit?</p>
+			<h2 className="!text-white">Want to work together? Want to have a chat?</h2>
+			<p>I&apos;d love to. Shoot me an email and we can grab a coffee.</p>
 			<Link href="mailto:mikaelsrozee@gmail.com" className="bg-white hover:bg-gray-200 !text-primary-default border border-primary-default !no-underline py-2 px-4 rounded-3xl mx-auto">
 				Get in touch
 				<span className="font-extrabold ml-2">&gt;</span>
