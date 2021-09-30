@@ -14,12 +14,13 @@ const Page: NextPage = () => (
 			<div className="self-center items-center flex flex-col mx-auto">
 				<div className="prose">
 					<h2>Hi, I&apos;m <span className="text-secondary">Mikael Rozee</span>.</h2>
-					<h1>Full-Stack Software Engineer & Technical Analyst</h1>
+					<h1>Software Engineer-Consultant</h1>
 					<p className="text-lg">I wear many hats. From solution architecture to delivery planning to hands-on-keyboard div slinging, I choose the right hats for any given task.</p>
 				</div>
-				<div className="w-32 h-32 md:w-64 md:h-64 mt-8 rounded-full bg-primary-default flex">
-					<img className="w-16 h-16 md:w-28 md:h-28 m-auto" src="https://images.ctfassets.net/8kxsu8yy3l3b/20nctnhnjDlwOHW1ok5dvl/6c90495a6ace22821a9333454f54ebde/logo.png" alt="Hero" />
-				</div>
+				<Link href="https://linkedin.com/in/mikaelsrozee" className="bg-white hover:bg-gray-200 !text-primary-default border border-primary-default !no-underline py-2 px-4 rounded-3xl mx-auto my-8">
+					I'm currently Looking for Work
+					<span className="font-extrabold ml-2">&gt;</span>
+				</Link>
 			</div>
 		</section>
 		{/* About me */}
@@ -33,6 +34,9 @@ const Page: NextPage = () => (
 			<p>
 				I focus on simple, strong engineering principles to focus on delivering a small
 				prototype first and then working with a client to iterate and evolve quickly.
+			</p>
+			<p>
+				I am currently the Engineering Lead at Google Developer Student Clubs, University of Portsmouth.
 			</p>
 		</Hero>
 		{/* Skills & Experiences */}
