@@ -18,7 +18,7 @@ const Page: NextPage = () => (
 					<p className="text-lg">I wear many hats. From solution architecture to delivery planning to hands-on-keyboard div slinging, I choose the right hats for any given task.</p>
 				</div>
 				<Link href="https://linkedin.com/in/mikaelsrozee" className="bg-white hover:bg-gray-200 !text-primary-default border border-primary-default !no-underline py-2 px-4 rounded-3xl mx-auto my-8">
-					I'm currently Looking for Work
+					I&apos;m currently Looking for Work
 					<span className="font-extrabold ml-2">&gt;</span>
 				</Link>
 			</div>
@@ -36,7 +36,8 @@ const Page: NextPage = () => (
 				prototype first and then working with a client to iterate and evolve quickly.
 			</p>
 			<p>
-				I am currently the Engineering Lead at Google Developer Student Clubs, University of Portsmouth.
+				I am currently the Engineering Lead at Google Developer Student Clubs,
+				University of Portsmouth.
 			</p>
 		</Hero>
 		{/* Skills & Experiences */}
