@@ -24,7 +24,7 @@ const Button = ({
     <button
       className={cn(
         className,
-        'bg-blue border-4 border-slate transition-transform hover:scale-105 focus:scale-105 focus:border-green focus:outline-none ease-in-out uppercase font-semibold px-6 py-3'
+        'bg-blue border-4 border-slate transition-transform hover:scale-105 focus:scale-105 focus:border-white focus:outline-none ease-in-out uppercase font-semibold px-6 py-3'
       )}
       type="button"
       {...rest}
