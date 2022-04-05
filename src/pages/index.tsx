@@ -8,7 +8,7 @@ interface Link {
 const links: Link[] = [
   {href: 'https://github.com/msrcodes', text: 'GitHub'},
   {href: 'https://twitter.com/msrcodes', text: 'Twitter'},
-  {href: 'https://linkedin.com/mikaelsrozee', text: 'LinkedIn'},
+  {href: 'https://linkedin.com/in/mikaelsrozee', text: 'LinkedIn'},
 ];
 
 const Homepage = () => (
