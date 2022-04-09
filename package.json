@@ -1,51 +1,42 @@
 {
-  "name": "msr.codes",
-  "version": "2.0.0",
-  "description": "Personal blog site",
-  "license": "MIT",
-  "scripts": {
-    "dev": "next dev",
-    "develop": "yarn dev",
-    "build": "next build",
-    "start": "next start",
-    "export": "next build && next export",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "prepare": "husky install"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mikaelsrozee/msr.codes.git"
-  },
+  "name": "msrcodes-site",
+  "version": "1.0.0",
+  "description": "Personal website",
+  "repository": "git@github.com:mikaelsrozee/msr.codes.git",
   "author": "Mikael Rozee <mikaelsrozee@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/mikaelsrozee/msr.codes/issues"
-  },
-  "homepage": "https://github.com/mikaelsrozee/msr.codes#readme",
-  "dependencies": {
-    "@tailwindcss/typography": "^0.4.1",
-    "gray-matter": "^4.0.3",
-    "next": "^10.2.3",
-    "next-mdx-remote": "^3.0.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.2.0",
-    "react-stickynode": "^3.0.5",
-    "tailwindcss": "^2.1.4"
+  "license": "UNLICENSED",
+  "private": false,
+  "scripts": {
+    "build": "next build",
+    "clean": "gts clean",
+    "dev": "next dev",
+    "export": "next build && next export",
+    "fix": "gts fix",
+    "lint": "gts lint",
+    "prepare": "husky install",
+    "start": "next start"
   },
   "devDependencies": {
-    "@types/node": "^15.12.1",
-    "@types/react": "^17.0.9",
-    "@types/react-stickynode": "^3.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.26.0",
-    "autoprefixer": "^10.2.6",
-    "eslint": "7.2.0",
-    "eslint-config-airbnb-typescript": "^12.3.1",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.3",
-    "eslint-plugin-react-hooks": "^4.0.8",
-    "husky": "^6.0.0",
-    "postcss": "^8.3.0",
-    "typescript": "^4.3.2"
+    "@next/eslint-plugin-next": "^12.0.1",
+    "@types/node": "^14.11.2",
+    "@types/react": "^17.0.19",
+    "@types/tmi.js": "^1.8.1",
+    "autoprefixer": "^10.4.4",
+    "eslint": "^7.32.0",
+    "gts": "^3.1.0",
+    "lint-staged": ">=10",
+    "husky": ">=6",
+    "next": "^12.1.0",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.23",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "next-seo": "^4.28.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "yarn lint"
   }
 }

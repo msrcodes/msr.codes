@@ -1,72 +1,64 @@
-# 💻 msr.codes blog site
+# 🟦 Personal Website
+[![Code Style: Google](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/83ce6b87-4613-4435-80c8-67c05bf817f4/deploy-status)](https://app.netlify.com/sites/vigilant-hoover-31b733/deploys)
+A website to act as a splash page for all things I do. It's hosted on [https://msr.codes/](https://msr.codes/)
 
-This is my personal blog / portfolio site. You can find it at [https://msr.codes](https://msr.codes).
+## ✨ Features
 
-# 📙 Tech Stack
+- [Next.js 12](https://nextjs.org/), for all your production-ready React SSR (or Static) needs
+- [Google TypeScript Style](https://github.com/google/gts), for consistent, readable code
+- [Husky](https://www.npmjs.com/package/husky), for pre-commit linting and build checks
+- [Issue Templates](./.github/ISSUE_TEMPLATE/feature-request.md), to get you up and running in Open Source quickly
 
-- TypeScript
-- Next.js (+ React)
-- TailwindCSS (with JIT compiler)
-- Contentful
+## 📄 Scripts
 
-... and more, see the `package.json` for a full list of dependencies
+Run any of the following scripts using `yarn`:
 
-# ⚙️ Installation
-Install the necessary prerequisites:
 ```
-yarn
-```
-```
-yarn prepare
+yarn <script>
 ```
 
-and then run the appropriate script for your need:
+| Script | Description                                                          |
+|--------|----------------------------------------------------------------------|
+| build  | Build the Next.js application, ready to be ran with `start`          |
+| clean  | Remove linter output files                                           |
+| dev    | Start the Next.js application in hot-reloading mode, for development |
+| fix    | Automatically fix all linting issues in files                        |
+| lint   | Check all files, reporting them to the console                       |
+| start  | Start the Next.js application in production mode, requires `build`   |
 
-**Development**
-```
-yarn dev
-```
+### 🙋‍♂️ Don't have Yarn?
 
-**Production: Server Side Rendering**
-```
-yarn build
-yarn start
-```
+Install it using npm.
 
-**Production Export Static Pages**
 ```
-yarn export
-```
-# 📦 Contentful Migrations
-
-This website uses [Contentful](https://www.contentful.com) as it's headless CMS to provide a smooth editing experience. The content types needed for this project are provided as database migration scripts. These can be installed as follows:
-
-## Create space from migrations
-The following instructions will generate the Contentful space from the included migration scripts.
-1. Install the Contentful CLI globally
-```bash
-yarn global add contentful
-```
-2. Run each migration script in order
-```bash
-contentful space migration -s ${space_id} -e ${environment} ./src/content/migrations/00-initial.js 
-```
-```bash
-contentful space migration -s ${space_id} -e ${environment} ./src/content/migrations/01-foo.js 
-```
-```bash
-contentful space migration -s ${space_id} -e ${environment} ./src/content/migrations/02-bar.js 
+npm install --global yarn
 ```
 
-## Create migrations from space
-This is typically only done during development - likely if you  are forking this website or contributing to it.
-1. Install the Contentful CLI globally
-```bash
-yarn global add contentful
+## ⚙️ Environment Variables
+
+**Do not push sensitive keys to GitHub**. You should follow [Next.js' Guide](https://nextjs.org/docs/basic-features/environment-variables) for environment variables.
+
+This includes:
+
+- **.env.local**: Use a `.env.local` file for any sensitive keys. These should not be pushed to GitHub.
+- **.env**: Use a `.env` file for any application configuration that can be safely committed to GitHub, such as a `PORT` value.
+
+### 🌐 Exposing Environment Variables to the Browser
+
+By default, Next.js will only load environment variables in the Node.js environment and not load them in the browser.
+
+It may be the case that, in some circumstances, it is necessary to load these values in the browser. To do this, prefix the environment variable with `NEXT_PUBLIC_`:
+
+```env
+NEXT_PUBLIC_ANALYTICS_ID=foo
 ```
-2. Run the `space generate migration` command
-```bash
-contentful space generate migration -s ${space_id} -e master -f ./src/content/migrations ${XX-name}.js  
-```
+
+### 🔨 Environment variables used in this application
+
+Use this table to store and describe the environment variables used in your application so that others can maintain your application.
+
+| Key             | Description                                    | Required |
+|-----------------|------------------------------------------------|----------|
+| PORT            | The port that the application runs on.         | No       |
+| NEXT_PUBLIC_FOO | An example value.                              | No       |

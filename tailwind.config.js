@@ -1,29 +1,15 @@
 module.exports = {
-	mode: 'jit',
-	purge: [
-		'./src/**/*.{js,jsx,ts,tsx}',
-	],
-	darkMode: 'media',
-	theme: {
-		extend: {
-			colors: {
-				primary: {
-					default: '#1C77C3',
-				},
-				secondary: {
-					DEFAULT: '#EE6C4D',
-				},
-				tertiary: {
-					DEFAULT: '#63B0CD',
-				},
-				dark: {
-					DEFAULT: '#39393A',
-				},
-			},
-		},
-	},
-	plugins: [
-		// eslint-disable-next-line global-require
-		require('@tailwindcss/typography'),
-	],
-}
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    colors: {
+      blue: '#04ADC6',
+      pink: '#F671A4',
+      green: '#70AD5B',
+      slate: '#272932',
+      red: '#E53D00',
+      white: '#FFFFFF',
+    },
+    extend: {},
+  },
+  plugins: [],
+};
