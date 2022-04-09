@@ -1,7 +1,7 @@
-# 🦁 Next.js Boilerplate
+# 🟦 Personal Website
 [![Code Style: Google](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
 
-A boilerplate for projects using Next.js and TypeScript.
+A website to act as a splash page for all things I do. It's hosted on [https://msr.codes/](https://msr.codes/)
 
 ## ✨ Features
 
@@ -62,26 +62,3 @@ Use this table to store and describe the environment variables used in your appl
 |-----------------|------------------------------------------------|----------|
 | PORT            | The port that the application runs on.         | No       |
 | NEXT_PUBLIC_FOO | An example value.                              | No       |
-
-
-## ☁️ Hosting
-
-This project comes with support for Firebase Hosting out of the box. This consists of:
-
-* A root `firebase.json` file that holds the configuration for Firebase Hosting
-* A `.github/workflows/firebase-hosting.yml` file, the GitHub Action that deploys your application to the Web
-
-To use the application, provide your secret keys in the format specified on your repository's secrets.
-
-You can find these by going to `Settings -> Secrets -> New Repository Secret`.
-
-| Key                          | Required |
-|------------------------------|----------|
-| FIREBASE_SERVICE_ACCOUNT     | Yes      |
-| FIREBASE_PROJECT_ID          | Yes      |
-| FIREBASE_API_KEY             | No       |
-| FIREBASE_AUTH_DOMAIN         | No       |
-| FIREBASE_STORAGE_BUCKET      | No       |
-| FIREBASE_MESSAGING_SENDER_ID | No       |
-| FIREBASE_APP_ID              | No       |
-| FIREBASE_MEASUREMENT_ID      | No       |
