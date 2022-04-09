@@ -10,7 +10,7 @@
     "build": "next build",
     "clean": "gts clean",
     "dev": "next dev",
-    "export": "next export",
+    "export": "next build && next export",
     "fix": "gts fix",
     "lint": "gts lint",
     "prepare": "husky install",
