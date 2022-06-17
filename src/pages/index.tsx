@@ -24,11 +24,7 @@ const Homepage = () => (
           </span>
           Hi, I'm Mikael
         </h1>
-        <p>
-          Currently, I am just wrapping up my BSc (Hons) Computer Science degree
-          before joining Elanco Animal Health as the Digital and Web Engineering
-          Lead in July.
-        </p>
+        <p>Enterprise Web Lead at Elanco.</p>
         <p>
           This site is currently under construction. For now, find me on other
           platforms.
